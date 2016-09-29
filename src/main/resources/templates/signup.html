@@ -1,0 +1,30 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Todo</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/signup.css}"/>
+    <script type="text/javascript" th:src="@{/js/signup.js}"></script>
+</head>
+<body>
+<div class="login-page">
+    <div class="form">
+        <form class="register-form" name="loginForm" id="loginForm" method="post" action="/save">
+            <input type="text" name="userName" id="userName" placeholder="Kullanıcı adı"/>
+            <input type="password" name="password" value="" id="password" placeholder="Şifre"/>
+            <input type="text" name="email" id="email" placeholder="Email Adresiniz"/>
+            <p class="errorEmailMessage"></p>
+            <button type="submit">Üye ol</button>
+            <p class="message">Zaten üyeyim<a href="/">Giriş Yap</a></p>
+            <div th:if="${error != null and error}">
+                <p class="errorMessage"> Girdiğiniz bilgileri kontrol ediniz...</p>
+            </div>
+            <p class="errorMessage"></p>
+        </form>
+    </div>
+</div>
+</body>
+</html>
+

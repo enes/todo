@@ -1,0 +1,27 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Giriş yap</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/signup.css}"/>
+</head>
+<body>
+<div class="login-page">
+    <div class="form">
+        <div th:if="${success != null and success}">
+            <p class="successMessage">Kaydınız başarıyla tamamlanmıştır. Giriş yapabilirsiniz.</p>
+        </div>
+
+        <form name="loginForm" method="post" action="/login">
+            <input type="text" placeholder="Email adres" name="email"/>
+            <input type="password" placeholder="Şifre" name="password"/>
+            <button type="submit">Giriş Yap</button>
+            <div th:if="${error != null and error}">
+                <p class="errorMessage">Hatalı email adresi yada şifre.</p>
+            </div>
+            <p class="message">Hala üye değil misin?<a href="/signup">Hemen üye ol</a></p>
+        </form>
+    </div>
+</div>
+</body>
+</html>
+

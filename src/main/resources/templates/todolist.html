@@ -1,0 +1,23 @@
+<div th:remove="tag"
+     xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:th="http://www.thymeleaf.org">
+    <div th:if="${!#lists.isEmpty(todos)}">
+        <table>
+            <tr>
+                <th style="padding-right: 20px">Açıklama</th>
+                <th style="padding-right: 20px">Başlangıç Tarihi</th>
+                <th style="padding-right: 20px">Bitiş Tarihi</th>
+                <th style="padding-right: 20px">Sil</th>
+            </tr>
+            <tr th:each="todo : ${todos}">
+                <td style="padding-right: 20px" th:text="${todo.explanation}">açıklama</td>
+                <td style="padding-right: 20px" th:text="${todo.formattedStartDate}">başlangıç tarihi</td>
+                <td style="padding-right: 20px" th:text="${todo.formattedEndDate}">bitiş tarihi</td>
+                <th style="padding-right: 20px">
+                    <div class="removeTodo" style="color:red;margin: 5px;cursor:pointer;" th:text="Sil"
+                         th:attr="data-id=${todo.id}"></div>
+                </th>
+            </tr>
+        </table>
+    </div>
+</div>
